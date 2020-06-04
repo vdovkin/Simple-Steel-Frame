@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+    <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Сервіс для архітекторів">
+    <meta name="author" content="Вдовкін Олександр">
+
+    <title>Steel Frame Calculator</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Fontawesome css-->
+    <link href="static/css/fontawesome-free/all.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Custom css-->
+    <link href="static/css/style.css" rel="stylesheet" type="text/css">
+
+    </head>
+
+    <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">Розрахунок сталевого каркасу</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">Про сервіс
+                <!-- <span class="sr-only">(current)</span> -->
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.uscc.ua/">Повернутися на сайт УЦСС</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="my-5 container">
+
+      <!-- Portfolio Item Row -->
+      <div class="row">
+
+        <div class="col-md-8">
+          <img class="img-fluid" src="static/img/Shema1.png" alt="">
+        </div>
+
+        <div class="col-md-4">
+          <h4 class="my-3">Розрахунок фрагменту каркасу</h4>
+          <p>Для попереднього розрахунку сталевого каркасу вибереріть основні параметри нижче. 
+          </p>
+
+
+
+          <ul>
+            <li class="my-3"><h6>Сітка колон</h6>
+                <select class="custom-select">
+                    <option selected>8,4 x 8,4</option>
+                    <option value="1">8,4 x 16,8</option>
+                    <option value="2">9 x 9</option>
+                    <option value="3">9 x 18</option>
+                  </select>
+            </li>
+            <li class="my-3"><h6>Тип будівлі</h6>
+                <select class="custom-select">
+                    <option value="0" selected>ТРЦ</option>
+                    <option value="1">Офіси классу А</option>
+                    <option value="2">Офіси іншого классу</option>
+                    <option value="3">Адмін будівлі</option>
+                    <option value="4">Інші</option>
+                </select>
+            </li>
+            <li class="my-3"><h6>Висота поверху (округлено до цілого числа)</h6>
+              <select class="custom-select">
+                  <option value="0">менше 3 м</option>
+                  <option value="1" selected>3 м</option>
+                  <option value="2">4 м</option>
+                  <option value="3">5 м</option>
+                  <option value="4">6 м</option>
+                  <option value="5">більше 6 м</option>
+              </select>
+          </li>
+
+            <li class="my-3"><h6>Кількість поверхів</h6>
+              <select class="custom-select">
+                  <option value="1">1</option>
+                  <option value="2" selected>2</option>
+                  <option value="3">3</option>
+                  <option value="4">4-6</option>
+                  <option value="5">7-9</option>
+                  <option value="6">10-14</option>
+                  <option value="7">15-20</option>
+                  <option value="8">20-25</option>
+                  <option value="9">більше 25</option>
+              </select>
+          </li>
+          </ul>
+          <button type="button" class="btn btn-success my-4">Завантажити модель</button>
+
+
+        </div>
+
+      </div>
+      <!-- /.row -->
+
+      <!-- Related Projects Row -->
+      <h3 class="my-4">Характеристики елементів</h3>
+
+      <div class="row">
+
+        <div class="col-md-3 col-sm-6 mb-4">
+          <h5 class="text-center">Тип перекриття</h5>
+          <a href="#">
+            <img class="img-fluid" src="static/img/floorslab.jpg" alt="floor slab img">
+          </a>
+          <ol>
+            <li>Балка перекриття</li>
+            <li>Арматура</li>
+            <li>Бетон</li>
+            <li>Несучий профнастил</li>
+            <li>Анкера</li>
+          </ol>
+
+          <p></p>
+        </div>
+
+        <div class="col-md-3 col-sm-6 mb-4 text-center">
+          <h5>Другорядні балки</h5>
+          <a href="#">
+            <img class="img-fluid" src="static/img/S_beam.png" alt="Secondary beam">
+          </a>
+          <ul>
+            <li>Полиця - 170х12 мм</li>
+            <li>Стінка - 396х8 мм</li>
+          </ul>
+        </div>
+
+        <div class="col-md-3 col-sm-6 mb-4 text-center">
+          <h5>Головні балки</h5>
+          <a href="#">
+            <img class="img-fluid" src="static/img/M_beam.png" alt="Main beam">
+          </a>
+          <ul>
+            <li>Полиця - 240х12 мм</li>
+            <li>Стінка - 632х10 мм</li>
+          </ul>
+        </div>
+
+        <div class="col-md-3 col-sm-6 mb-4 text-center">
+          <h5>Колони</h5>
+          <a href="#">
+            <img class="img-fluid" src="static/img/column.png" alt="column">
+          </a>
+          <ul>
+            <li>Полиця - 320х12 мм</li>
+            <li>Стінка - 270х10 мм</li>
+          </ul>
+        </div>
+
+      </div>
+      <!-- /.row -->
+
+      <!-- Related Projects Row -->
+      <h3 class="my-4">Можливість пропску комунікацій через перфорації у балках</h3>
+
+      <div class="row">
+
+        <div class="col-md-6 col-sm-6  text-center">
+          <h5>Габарити комунікацій у другорядних балках</h5>
+          <a href="#">
+            <img class="img-fluid" src="static/img/S_beam_ES.png" alt="Secondary beam ES">
+          </a>
+          <p>Максимальний габарит - 700х300 мм</p>
+        </div>
+
+        <div class="col-md-6 col-sm-6 text-center">
+          <h5>Габарити комунікацій у головних балках</h5>
+          <a href="#">
+            <img class="img-fluid" src="static/img/M_beam_ES.png" alt="Main beam ES">
+          </a>
+          <p>Максимальний габарит - 1000х450 мм</p>
+        </div>
+
+      </div>
+      <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+
+    <script src="static/js/main.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script src="static/js/jquery.min.js"></script>
+    <script src="static/js/bootstrap.bundle.min.js"></script>
+
+  </body>
+
+</html>

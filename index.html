@@ -64,7 +64,7 @@
       <!-- Portfolio Item Row -->
       <div class="row">
         <div class="col-md-6">
-          <img class="img-fluid" src="static/img/Shema1.png" alt="" />
+          <img id='MainImage' class="img-fluid" src="static/img/shema1.jpg" alt="" />
         </div>
 
         <div class="col-md-6">
@@ -73,6 +73,8 @@
             Для попереднього розрахунку балки вибереріть основні параметри
             нижче.
           </p>
+          <button type="button" class="btn btn-primary" onclick="MainBeam()">Головна балка</button>
+          <button type="button" class="btn btn-secondary" onclick="SecBeam()">Другорядна балка</button>
           <form>
             <div>
               <label for="Lenght">Довжина балки (L), м</label>
@@ -104,7 +106,7 @@
                 <input type="number" class="form-control" id="Lenght" />
               </div>
             </div>
-            <button type="button" class="btn btn-success my-4">
+            <button type="button" class="btn btn-success my-4" onclick="Calculate()">
               Розрахувати
             </button>
 
@@ -120,8 +122,8 @@
           <h5>Орієнтовна висота (H): <span>600мм</span></h5>
           <a href="#">
             <img
+              id="BeamImage"
               class="img-fluid"
-              src="static/img/beam.png"
               alt="Secondary beam ES"
             />
           </a>
@@ -131,8 +133,8 @@
           <h5>Габарити комунікацій у головних балках</h5>
           <a href="#">
             <img
+              id='CommImage'
               class="img-fluid"
-              src="static/img/M_beam_ES.png"
               alt="Main beam ES"
             />
           </a>

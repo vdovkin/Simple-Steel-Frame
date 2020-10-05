@@ -1,6 +1,12 @@
-$(".dropdown-menu li a").click(function(){
+function MainBeam() {
+  document.getElementById("MainImage").src = "/static/img/shema1.jpg";
+}
 
-    $(this).parents(".btn-group").find('.selection').text($(this).text());
-    $(this).parents(".btn-group").find('.selection').val($(this).text());
-  
-  });
+function SecBeam() {
+  document.getElementById("MainImage").src = "/static/img/shema2.jpg";
+}
+
+function Calculate() {
+  document.getElementById("BeamImage").src = "/static/img/beam.png";
+  document.getElementById("CommImage").src = "/static/img/communication.png";
+}

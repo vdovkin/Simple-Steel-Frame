@@ -1,7 +1,16 @@
 {% extends "layout.html" %} {% block content %}
+
 <!-- Page Content -->
-<div class="my-5 container">
-  <!-- Portfolio Item Row -->
+<div class="container">
+  <!-- HEADER -->
+  <div class="row align-items-center">
+    <div class="col-sm-12 text-center">
+      <h2>Попередній розрахунок сталевих балок</h2>
+    </div>
+  </div>
+  <!-- END HEADER -->
+
+  <!-- MAIN BLCOK -->
   <div class="row">
     <div class="col-md-6">
       <img
@@ -13,7 +22,6 @@
     </div>
 
     <div class="col-md-6">
-      <h4 class="my-3">Розрахунок висоти балок</h4>
       <p>
         Для попереднього розрахунку балки вибереріть основні параметри нижче.
       </p>
@@ -23,49 +31,48 @@
       <button type="button" class="btn btn-secondary" onclick="SecBeam()">
         Другорядна балка
       </button>
-      <form>
-        <div>
-          <label for="Lenght">Довжина балки (L), м</label>
-          <input type="number" class="form-control" id="Lenght" />
-        </div>
-
-        <div>
-          <label for="BeamStep">Крок балок (B), м</label>
-          <input type="number" class="form-control" id="BeamStep" />
-        </div>
-
-        <div>
-          <label for="BuildingType">Тип будівлі</label>
-          <select id="BuildingType" class="custom-select">
-            <option value="0" selected>ТРЦ</option>
-            <option value="1">Офіси классу А</option>
-            <option value="2">Офіси іншого классу</option>
-            <option value="3">Адмін будівлі</option>
-            <option value="4">Інші</option>
-          </select>
-        </div>
+        <form>
+            {{ form.hidden_tag() }}
         <div class="row">
           <div class="col">
-            <label for="G_load">Постійне навантаження, кг/м<sup>2</sup> </label>
+            <label for="Lenght">Довжина балки (L), м</label>
             <input type="number" class="form-control" id="Lenght" />
+            <label for="BeamStep">Крок (B), м</label>
+            <input type="number" class="form-control" id="BeamStep" />
+            <button
+            type="button"
+            class="btn btn-success my-4"
+            onclick="Calculate()"
+          >
+            Розрахувати
+          </button>
           </div>
-          <div class="col">
-            <label for="Q_load">Корисне навантаження, кг/м<sup>2</sup></label>
-            <input type="number" class="form-control" id="Lenght" />
-          </div>
-        </div>
-        <button
-          type="button"
-          class="btn btn-success my-4"
-          onclick="Calculate()"
-        >
-          Розрахувати
-        </button>
-      </form>
-    </div>
-    <!-- /.row -->
 
-    <!-- Related Projects Row -->
+          <div class="col">
+            <div>
+                <label for="BuildingType">Тип будівлі</label>
+                <select id="BuildingType" class="custom-select">
+                  <option value="0" selected>ТРЦ</option>
+                  <option value="1">Офіси классу А</option>
+                  <option value="2">Офіси іншого классу</option>
+                  <option value="3">Адмін будівлі</option>
+                  <option value="4">Інші</option>
+                </select>
+                <label for="G_load"
+                >Постійне навантаження, кг/м<sup>2</sup>
+              </label>
+              <input type="number" class="form-control" id="Lenght" />
+              <label for="Q_load">Корисне навантаження, кг/м<sup>2</sup></label>
+              <input type="number" class="form-control" id="Lenght" />
+              </div>
+          </div>
+      </div>
+        </form>
+      </div>
+    </div>
+    <!-- END MAIN BLCOK -->
+
+    <!-- RESULTS -->
     <div class="row">
       <div class="col-md-6 col-sm-6 text-center">
         <h5>Орієнтовна висота (H): <span>600мм</span></h5>
@@ -82,8 +89,8 @@
         <p>Максимальний габарит - 1000х450 мм</p>
       </div>
     </div>
-    <!-- /.row -->
+    <!-- END RESULTS -->
   </div>
-  <!-- /.container -->
+  <!-- END PAGE Content -->
+  {% endblock content %}
 </div>
-{% endblock content %}

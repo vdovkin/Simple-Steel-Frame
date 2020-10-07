@@ -1,0 +1,89 @@
+{% extends "layout.html" %} {% block content %}
+<!-- Page Content -->
+<div class="my-5 container">
+  <!-- Portfolio Item Row -->
+  <div class="row">
+    <div class="col-md-6">
+      <img
+        id="MainImage"
+        class="img-fluid"
+        src="static/img/shema1.jpg"
+        alt=""
+      />
+    </div>
+
+    <div class="col-md-6">
+      <h4 class="my-3">Розрахунок висоти балок</h4>
+      <p>
+        Для попереднього розрахунку балки вибереріть основні параметри нижче.
+      </p>
+      <button type="button" class="btn btn-primary" onclick="MainBeam()">
+        Головна балка
+      </button>
+      <button type="button" class="btn btn-secondary" onclick="SecBeam()">
+        Другорядна балка
+      </button>
+      <form>
+        <div>
+          <label for="Lenght">Довжина балки (L), м</label>
+          <input type="number" class="form-control" id="Lenght" />
+        </div>
+
+        <div>
+          <label for="BeamStep">Крок балок (B), м</label>
+          <input type="number" class="form-control" id="BeamStep" />
+        </div>
+
+        <div>
+          <label for="BuildingType">Тип будівлі</label>
+          <select id="BuildingType" class="custom-select">
+            <option value="0" selected>ТРЦ</option>
+            <option value="1">Офіси классу А</option>
+            <option value="2">Офіси іншого классу</option>
+            <option value="3">Адмін будівлі</option>
+            <option value="4">Інші</option>
+          </select>
+        </div>
+        <div class="row">
+          <div class="col">
+            <label for="G_load">Постійне навантаження, кг/м<sup>2</sup> </label>
+            <input type="number" class="form-control" id="Lenght" />
+          </div>
+          <div class="col">
+            <label for="Q_load">Корисне навантаження, кг/м<sup>2</sup></label>
+            <input type="number" class="form-control" id="Lenght" />
+          </div>
+        </div>
+        <button
+          type="button"
+          class="btn btn-success my-4"
+          onclick="Calculate()"
+        >
+          Розрахувати
+        </button>
+      </form>
+    </div>
+    <!-- /.row -->
+
+    <!-- Related Projects Row -->
+    <div class="row">
+      <div class="col-md-6 col-sm-6 text-center">
+        <h5>Орієнтовна висота (H): <span>600мм</span></h5>
+        <a href="#">
+          <img id="BeamImage" class="img-fluid" alt="Secondary beam ES" />
+        </a>
+      </div>
+
+      <div class="col-md-6 col-sm-6 text-center">
+        <h5>Габарити комунікацій у головних балках</h5>
+        <a href="#">
+          <img id="CommImage" class="img-fluid" alt="Main beam ES" />
+        </a>
+        <p>Максимальний габарит - 1000х450 мм</p>
+      </div>
+    </div>
+    <!-- /.row -->
+  </div>
+  <!-- /.container -->
+</div>
+{% endblock content %}

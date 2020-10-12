@@ -1,10 +1,15 @@
 from flask import render_template, redirect, url_for, request
 from app import app
+from app.forms import BeamForm
 
 
-@app.route("/")
+@app.route("/", methods=["GET", "POST"])
 def index():
-    return render_template("index.html")
+    form = BeamForm()
+    if form.validate_on_submit():
+        result = 23
+        return render_template("index.html", form=form, result=result)
+    return render_template("index.html", form=form)
 
 
 @app.route("/about")

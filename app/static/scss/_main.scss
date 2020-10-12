@@ -1,87 +1,97 @@
-.info {
-  margin: 40px 0;
-  img {
-    width: 100%;
-  }
+.beamtype {
+  margin-bottom: 20px;
 }
 
-.features {
-  padding: 40px 0;
+// button
+.btn-beamtype {
+  font-weight: 600;
+  color: $color3;
+  text-transform: uppercase;
+  border-radius: 0;
+  border: none;
+  outline: none;
+  padding: 5px 15px;
+  cursor: pointer;
+}
+
+.btn-beamtype:focus {
+  border: none;
+  outline: none;
+}
+
+.not-active {
   background-color: $color4;
-  ul {
-    padding: 0 20px;
-  }
-  li {
-    list-style: square;
-    margin-bottom: 15px;
-    margin-top: 15px;
-  }
-  .sec-list {
-    padding-left: 40px;
-    li {
-      list-style: circle;
-      margin-top: 5px;
-      margin-bottom: 5px;
-      font-style: italic;
-    }
-  }
 }
 
-.info-last {
-  .info-col {
-    margin-bottom: 20px;
-  }
-  h5 {
-    padding: 0 20px;
-  }
-  a {
-    text-transform: uppercase;
-    font-weight: bold;
-    color: $color1;
-  }
-  a:hover {
-    text-decoration: none;
-    color: $color2;
-  }
+.not-active:hover {
+  background-color: $color2;
 }
 
-.help {
-  margin-top: 20px;
-  font-style: italic;
-  font-size: 10px;
-  @media #{$large_device} {
+.active {
+  color: white;
+  background-color: $color3;
+}
+
+.beamform {
+  background-color: $color6;
+  border-radius: 20px;
+  box-shadow: 5px 5px 10px $color3;
+  padding: 15px;
+  text-align: center;
+}
+
+.form-element {
+  margin-bottom: 10px;
+  padding-bottom: 20px;
+  position: relative;
+  label {
+    color: $color5;
+    display: block;
+    margin-bottom: 5px;
+  }
+  input,
+  select {
+    border: 2px solid #f0f0f0;
+    border-radius: 4px;
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+  }
+  input:focus,
+  select:focus {
+    outline: 0;
+    border-color: $color5;
+  }
+  span {
     font-size: 12px;
+    color: $error_color;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    visibility: hidden;
   }
-  @media #{$mobile_device} {
-    font-size: 8px;
+  span.error {
+    visibility: visible;
   }
 }
 
-.add-element {
-  background-color: $color1;
-  color: #fff;
-  //   font-size: 16px;
-  padding: 14px 0;
-  @media #{$large_device} {
-    // font-size: 18px;
-    padding: 18px 0;
-  }
-  @media #{$mobile_device} {
-    // font-size: 14px;
-    padding: 9px 0;
-  }
+.mainfield {
+  height: 25%;
+}
 
-  h4 {
-    margin-bottom: 1px;
-    margin-right: 20px;
-    font-size: 18px;
-    @media #{$large_device} {
-      margin-bottom: 4px;
-      font-size: 20px;
-    }
-    @media #{$mobile_device} {
-      margin-bottom: 0px;
-      font-size: 16px;
-    }
+.loadsection {
+  padding: 5px 15px;
+  background-color: $color4;
+  box-shadow: 2px 2px 5px $color3;
+  border-radius: 20px;
+  p {
+    color: white;
+    font-weight: 700;
+    text-shadow: 1px 1px 5px $color3;
   }
+}
+
+.results {
+  padding-top: 50px;
 }

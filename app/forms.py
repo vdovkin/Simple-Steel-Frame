@@ -1,26 +1,28 @@
 from flask_wtf import FlaskForm
 from wtforms import DecimalField, SelectField, SubmitField
-from wtforms.validators import DataRequired
 
 
 class BeamForm(FlaskForm):
-    lenght = DecimalField("Довжина, м (L)", validators=[DataRequired()])
-    step = DecimalField("Крок, м (B)", validators=[DataRequired()])
+    length = DecimalField("Довжина, м (L)")
+    step = DecimalField("Крок, м (B)")
+    construction_type = SelectField(
+        "Тип конструкції",
+        choices=[("floor", "Перекриття"), ("roof", "Покриття")],
+    )
 
     building_type = SelectField(
         "Тип будівлі",
-        choices=[("beam", "ТРЦ"), ("A_office", "Офіс класу А"), ("column", "Колони")],
+        choices=[
+            ("mall", "ТРЦ"),
+            ("A_office", "Офіс класу А"),
+            ("B_office", "Офіс класу В або нижче"),
+            ("prom", "Промислова будвіля"),
+            ("other", "Інше"),
+        ],
     )
 
-    beam_type = SelectField(
-        "Тип будівлі",
-        choices=[("beam", "ТРЦ"), ("truss", "Ферми"), ("column", "Колони")],
-    )
-
-    g_load = DecimalField("Постійне навантаження, кг/м2", validators=[DataRequired()])
-    q_load = DecimalField(
-        "Довготривале навантаження, кг/м2", validators=[DataRequired()]
-    )
-    payload = DecimalField("Корисне навантаження, кг/м2", validators=[DataRequired()])
+    g_load = DecimalField("Постійне")
+    q_load = DecimalField("Довготривале")
+    payload = DecimalField("Корисне")
 
     submit = SubmitField("Розрахувати")

@@ -11,7 +11,7 @@
   <!-- END HEADER -->
 
   <!-- MAIN BLCOK -->
-  <div class="row">
+  <div class="row align-items-center">
     <div class="col-md-6">
       <img
         id="MainImage"
@@ -22,75 +22,120 @@
     </div>
 
     <div class="col-md-6">
-      <p>
-        Для попереднього розрахунку балки вибереріть основні параметри нижче.
-      </p>
-      <button type="button" class="btn btn-primary" onclick="MainBeam()">
-        Головна балка
-      </button>
-      <button type="button" class="btn btn-secondary" onclick="SecBeam()">
-        Другорядна балка
-      </button>
-        <form>
-            {{ form.hidden_tag() }}
-        <div class="row">
-          <div class="col">
-            <label for="Lenght">Довжина балки (L), м</label>
-            <input type="number" class="form-control" id="Lenght" />
-            <label for="BeamStep">Крок (B), м</label>
-            <input type="number" class="form-control" id="BeamStep" />
-            <button
+      <div class="text-center">
+        <p>Вибереріть основні параметри балки нижче.</p>
+        <div class="beamtype">
+          <button
             type="button"
-            class="btn btn-success my-4"
-            onclick="Calculate()"
+            class="btn-beamtype active"
+            onclick="MainBeam()"
           >
-            Розрахувати
+            Головна
           </button>
-          </div>
-
-          <div class="col">
-            <div>
-                <label for="BuildingType">Тип будівлі</label>
-                <select id="BuildingType" class="custom-select">
-                  <option value="0" selected>ТРЦ</option>
-                  <option value="1">Офіси классу А</option>
-                  <option value="2">Офіси іншого классу</option>
-                  <option value="3">Адмін будівлі</option>
-                  <option value="4">Інші</option>
-                </select>
-                <label for="G_load"
-                >Постійне навантаження, кг/м<sup>2</sup>
-              </label>
-              <input type="number" class="form-control" id="Lenght" />
-              <label for="Q_load">Корисне навантаження, кг/м<sup>2</sup></label>
-              <input type="number" class="form-control" id="Lenght" />
-              </div>
-          </div>
+          <button
+            type="button"
+            class="btn-beamtype not-active"
+            onclick="SecBeam()"
+          >
+            Другорядна
+          </button>
+        </div>
       </div>
+      <div class="beamform">
+        <form id="form" method="POST" action="">
+          {{ form.hidden_tag() }}
+          <div class="row">
+            <div class="col">
+              <div class="form-element mainfield">
+                {{ form.length.label }} {{ form.length ( type='number',
+                id='length') }} {% for error in form.length.errors %}
+                <span class="error">[{{ error }}]</span>
+                {% endfor %}
+              </div>
+              <div class="form-element mainfield">
+                {{ form.step.label }} {{ form.step ( type='number', id='step')
+                }} {% for error in form.step.errors %}
+                <span class="error">[{{ error }}]</span>
+                {% endfor %}
+              </div>
+              <div class="form-element mainfield">
+                {{ form.construction_type.label }} {{
+                form.construction_type(id='constructionType') }} {% for error in
+                form.construction_type.errors %}
+                <span class="error">[{{ error }}]</span>
+                {% endfor %}
+              </div>
+              {{ form.submit( class='btn-orange') }}
+            </div>
+
+            <div class="col">
+              <div class="form-element typefield">
+                {{ form.building_type.label }} {{
+                form.building_type(id='buildingType') }} {% for error in
+                form.building_type.errors %}
+                <span class="error">[{{ error }}]</span>
+                {% endfor %}
+              </div>
+
+              <div class="loadsection">
+                <p>Навантаження, кг/м <sup>2</sup></p>
+                <div class="form-element loadfield">
+                  {{ form.g_load.label }} {{ form.g_load (type='number',
+                  id='gLoad') }} {% for error in form.g_load.errors %}
+                  <span class="error">[{{ error }}]</span>
+                  {% endfor %}
+                </div>
+                <div class="form-element loadfield">
+                  {{ form.q_load.label }} {{ form.q_load (type='number',
+                  id='qLoad') }} {% for error in form.q_load.errors %}
+                  <span class="error">[{{ error }}]</span>
+                  {% endfor %}
+                </div>
+                <div class="form-element loadfield">
+                  {{ form.payload.label }} {{ form.payload (type='number',
+                  id='payload') }} {% for error in form.payload.errors %}
+                  <span class="error">[{{ error }}]</span>
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+          </div>
         </form>
       </div>
     </div>
-    <!-- END MAIN BLCOK -->
-
-    <!-- RESULTS -->
-    <div class="row">
-      <div class="col-md-6 col-sm-6 text-center">
-        <h5>Орієнтовна висота (H): <span>600мм</span></h5>
-        <a href="#">
-          <img id="BeamImage" class="img-fluid" alt="Secondary beam ES" />
-        </a>
-      </div>
-
-      <div class="col-md-6 col-sm-6 text-center">
-        <h5>Габарити комунікацій у головних балках</h5>
-        <a href="#">
-          <img id="CommImage" class="img-fluid" alt="Main beam ES" />
-        </a>
-        <p>Максимальний габарит - 1000х450 мм</p>
-      </div>
-    </div>
-    <!-- END RESULTS -->
   </div>
-  <!-- END PAGE Content -->
-  {% endblock content %}
+  <!-- END MAIN BLCOK -->
+
+  <!-- RESULTS -->
+  <div class="row results">
+    {% if result %}
+    <div class="col-md-6 col-sm-6 text-center">
+      <h5>Орієнтовна висота (H): <span>600мм</span></h5>
+      <a href="#">
+        <img
+          id="BeamImage"
+          src="static/img/beam.png"
+          class="img-fluid"
+          alt="Secondary beam ES"
+        />
+      </a>
+    </div>
+
+    <div class="col-md-6 col-sm-6 text-center">
+      <h5>Габарити комунікацій у головних балках</h5>
+      <a href="#">
+        <img
+          id="CommImage"
+          src="static/img/communication.png"
+          class="img-fluid"
+          alt="Main beam ES"
+        />
+      </a>
+      <p>Максимальний габарит - 600х400 мм</p>
+    </div>
+    {% endif %}
+  </div>
+  <!-- END RESULTS -->
 </div>
+<!-- END PAGE Content -->
+{% endblock content %}
